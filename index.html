@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Flop Hoops</title>
+  <meta name="description" content="Chaotic one-button 2v2 ragdoll basketball. First to 5 wins." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="in-menu">
+  <canvas id="game" aria-label="Game court"></canvas>
+
+  <div id="ui">
+    <section id="menu" class="overlay">
+      <div class="card menu-card">
+        <h1 class="logo"><span class="l1">FLOP</span><span class="l2">HOOPS</span></h1>
+        <p class="tag">One button. Two floppy players. Total chaos.</p>
+        <div class="buttons">
+          <button data-action="start-2p" class="btn primary">2 Players</button>
+          <button data-action="start-cpu" class="btn">1 Player vs CPU</button>
+          <button data-action="howto" class="btn ghost">How to play</button>
+        </div>
+        <div class="keys">
+          <div class="key-team t0"><kbd>W</kbd><span>Player 1</span></div>
+          <div class="key-team t1"><kbd>↑</kbd><span>Player 2</span></div>
+        </div>
+        <div id="howto" class="howto hidden">
+          <ul>
+            <li><b>Press</b> your key to hop. Both of your players jump together.</li>
+            <li><b>Hold</b> to keep hopping and to raise your arm.</li>
+            <li>Touch the ball with a <b>hand</b> to grab it. Opponents can swipe it away.</li>
+            <li><b>Release</b> your key while holding the ball to shoot. Shoot from close, upright and mid-jump for the best accuracy.</li>
+            <li>Carry the ball through the hoop to dunk. Every round changes the court, the ball and the players.</li>
+            <li>First to <b>5</b> wins. <kbd>Esc</kbd>/<kbd>P</kbd> pauses, <kbd>M</kbd> mutes. On touch screens, tap the left or right half.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="pause" class="overlay hidden">
+      <div class="card">
+        <h2>Paused</h2>
+        <div class="buttons">
+          <button data-action="resume" class="btn primary">Resume</button>
+          <button data-action="restart" class="btn">Restart match</button>
+          <button data-action="menu" class="btn ghost">Main menu</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="victory" class="overlay hidden">
+      <div class="card victory-card">
+        <div class="trophy">🏆</div>
+        <h2 class="v-title">WINNER</h2>
+        <div class="v-score">5 – 0</div>
+        <p class="v-sub"></p>
+        <div class="buttons">
+          <button data-action="rematch" class="btn primary">Rematch</button>
+          <button data-action="menu" class="btn ghost">Main menu</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="rotate-hint">Rotate your phone for a bigger court ↻</div>
+
+    <div id="corner">
+      <button id="btn-pause" data-action="pause" class="icon hidden" aria-label="Pause">❚❚</button>
+      <button id="btn-mute" data-action="mute" class="icon" aria-label="Mute">🔊</button>
+    </div>
+  </div>
+
+  <noscript>Flop Hoops needs JavaScript to run.</noscript>
+  <script src="vendor/matter.min.js"></script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
